@@ -54,6 +54,5 @@ Public Class Encriptador
         Catch ex As Exception
             Return cipherText
         End Try
-
     End Function
 End Class
