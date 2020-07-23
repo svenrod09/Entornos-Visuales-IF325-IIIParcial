@@ -32,7 +32,7 @@ Public Class conexion
             cmb.Parameters.AddWithValue("@psw", enc.Encriptar(psw))
             cmb.Parameters.AddWithValue("@rol", rol)
             cmb.Parameters.AddWithValue("@estado", estado)
-            cmb.Parameters.AddWithValue("@correo", correo)
+            cmb.Parameters.AddWithValue("@correo", convertirMinusculas(correo))
             If cmb.ExecuteNonQuery Then
                 Return True
             Else
@@ -77,7 +77,7 @@ Public Class conexion
             cmb.Parameters.AddWithValue("@userName", userName)
             cmb.Parameters.AddWithValue("@psw", enc.Encriptar(psw))
             cmb.Parameters.AddWithValue("@rol", rol)
-            cmb.Parameters.AddWithValue("@correo", correo)
+            cmb.Parameters.AddWithValue("@correo", convertirMinusculas(correo))
             If cmb.ExecuteNonQuery <> 0 Then
                 Return True
             Else
@@ -110,5 +110,8 @@ Public Class conexion
     End Function
     Public Function convertirMayusculas(ByVal Texto As String)
         Return StrConv(Texto, VbStrConv.ProperCase)
+    End Function
+    Public Function convertirMinusculas(ByVal Texto As String)
+        Return StrConv(Texto, VbStrConv.Lowercase)
     End Function
 End Class
