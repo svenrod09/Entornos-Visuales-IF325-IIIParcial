@@ -114,17 +114,16 @@ Public Class frmUsuario
     End Sub
     Private Sub modificarUsuario()
         Dim idUsuario As Integer
-        Dim nombre, apellido, userName, psw, correo, rol, estado As String
+        Dim nombre, apellido, userName, psw, correo, rol As String
         idUsuario = txtCodigo.Text
         nombre = txtNombre.Text
         apellido = txtApellido.Text
         userName = txtUserName.Text
         psw = txtPsw.Text
         correo = txtCorreo.Text
-        estado = "activo"
         rol = cmbRol.Text
         Try
-            If conexion.modificarUsuario(idUsuario, nombre, apellido, userName, psw, rol, estado, correo) Then
+            If conexion.modificarUsuario(idUsuario, nombre, apellido, userName, psw, rol, correo) Then
                 MessageBox.Show("Cliente Actualizado", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al actualizar cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -171,7 +170,6 @@ Public Class frmUsuario
             MessageBox.Show("Error al modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf validarCorreo(LCase(txtCorreo.Text)) = True And validarTextBox() = 1 Then
             modificarUsuario()
-            MessageBox.Show("Se modificó el usuario", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             mostrarDatos()
         End If
     End Sub
