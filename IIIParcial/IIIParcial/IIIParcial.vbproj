@@ -73,10 +73,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clase\conexion.vb" />
+    <Compile Include="Clase\frmProducto.Designer.vb">
+      <DependentUpon>frmProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clase\frmProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clase\frmRestaurarContrasenia.Designer.vb">
+      <DependentUpon>frmRestaurarContrasenia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clase\frmRestaurarContrasenia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Clase\frmUsuario.Designer.vb">
       <DependentUpon>frmUsuario.vb</DependentUpon>
     </Compile>
     <Compile Include="Clase\frmUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clase\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clase\Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clase\MenuClase.Designer.vb">
@@ -86,6 +104,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clase\Encriptador.vb" />
+    <Compile Include="Clase\ReporteTicket.Designer.vb">
+      <DependentUpon>ReporteTicket.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clase\ReporteTicket.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -122,11 +146,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clase\frmProducto.resx">
+      <DependentUpon>frmProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clase\frmRestaurarContrasenia.resx">
+      <DependentUpon>frmRestaurarContrasenia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clase\frmUsuario.resx">
       <DependentUpon>frmUsuario.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clase\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clase\MenuClase.resx">
       <DependentUpon>MenuClase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clase\ReporteTicket.resx">
+      <DependentUpon>ReporteTicket.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menú.resx">
       <DependentUpon>Menú.vb</DependentUpon>
@@ -176,6 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\KingHuskyHead.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Clase\MensajeAennviar.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class conexion
+Public Class conexion1
     Public conexion As SqlConnection = New SqlConnection("Data Source= localhost;Initial Catalog=TiendaIIIP; Integrated Security=True")
     'Private cmb As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
@@ -114,4 +114,68 @@ Public Class conexion
     Public Function convertirMinusculas(ByVal Texto As String)
         Return StrConv(Texto, VbStrConv.Lowercase)
     End Function
+    Public Function validarUsuario(userName As String, psw As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("validarUsuario", conexion)
+            cmb.CommandType = 4
+            cmb.Parameters.AddWithValue("@userName", userName)
+            cmb.Parameters.AddWithValue("@psw", psw)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+
+    '------------------------CONSULTA PERSONALIZADA-----------------------------
+    Public Function consultarPSW(correo As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("buscarUsuarioPorCorreo", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@correo", correo)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function consultarProducto(idCodigo As Integer) As DataTable
+        Try
+            conexion.Open()
+            Dim cmb As New SqlCommand("buscarProducto", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idProducto", idCodigo)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+End Class
+
 End Class

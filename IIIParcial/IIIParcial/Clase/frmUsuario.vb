@@ -1,7 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
 Imports System.Data.SqlClient
 Public Class frmUsuario
-    Dim conexion As New conexion()
+    Dim conexion As New conexion1()
     Private Sub frmUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conexion.conectar()
         mostrarDatos()
