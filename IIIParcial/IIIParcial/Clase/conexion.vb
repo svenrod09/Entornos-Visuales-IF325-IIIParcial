@@ -177,5 +177,3 @@ Public Class conexion1
         End Try
     End Function
 End Class
-
-End Class
